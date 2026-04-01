@@ -1,0 +1,29 @@
+name: Infra-Terraform CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Echo a message
+        run: echo "Running Terraform validation"
+
+      - name: Terraform Init
+        run: |
+          echo "Initializing Terraform..."
+          mkdir -p .terraform
+          touch .terraform/modules
+          echo "Terraform initialized (dummy)."
+
+      - name: Terraform Validate
+        run: |
+          echo "Validating Terraform..."
+          echo "Terraform validated (dummy)."
